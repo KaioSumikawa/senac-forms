@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123c69">
+  <title>Pesquisa de Inovação — Cursos Técnicos Senac</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script defer src="/js/questions.js"></script>
+  <script defer src="/js/form.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Página inicial da pesquisa">
+      <span class="brand-mark" aria-hidden="true">S</span><span>Pesquisa acadêmica</span>
+    </a>
+    <span class="header-note">Cursos Técnicos Senac</span>
+  </header>
+  <main class="page-shell">
+    <section class="intro-card" id="intro">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> INOVAÇÃO NA EDUCAÇÃO PROFISSIONAL</div>
+      <h1>Pesquisa de Inovação <span>— Cursos Técnicos Senac</span></h1>
+      <p class="intro-copy">Queremos conhecer a rotina dos cursos técnicos e identificar oportunidades de melhoria. Sua participação ajuda a entender quais tarefas, processos ou atividades poderiam ser facilitados por sistemas e aplicativos.</p>
+      <div class="notice"><span class="notice-icon" aria-hidden="true">i</span><p><strong>Quem pode participar?</strong> Esta pesquisa é destinada exclusivamente a alunos matriculados em cursos técnicos. Não é destinada a alunos de cursos livres.</p></div>
+      <form id="start-form" class="start-form">
+        <label for="course-select">Qual curso técnico você está cursando? <span class="required">*</span></label>
+        <select id="course-select" name="courseId" required>
+          <option value="">Selecione seu curso</option>
+        </select>
+        <div id="other-course-wrap" class="other-course-wrap" hidden>
+          <label for="other-course">Nome do curso técnico <span class="required">*</span></label>
+          <input id="other-course" name="otherCourseName" maxlength="100" autocomplete="off" placeholder="Digite o nome do curso">
+        </div>
+        <button class="button button-primary" type="submit">Iniciar pesquisa <span aria-hidden="true">→</span></button>
+      </form>
+      <div class="privacy-note"><span aria-hidden="true">⌑</span> Pesquisa anônima: não solicitamos nome, e-mail ou outros dados pessoais.</div>
+    </section>
+
+    <section id="survey" class="survey-card" hidden aria-live="polite">
+      <div class="survey-topline"><button type="button" id="back-button" class="text-button">← Voltar</button><span id="survey-course"></span></div>
+      <div class="progress-track"><span id="progress-bar"></span></div>
+      <p class="survey-meta">PESQUISA ANÔNIMA <span>·</span> <span id="question-count"></span></p>
+      <h2>Conte um pouco sobre sua rotina</h2>
+      <p class="form-hint">Não há respostas certas ou erradas. Responda de acordo com sua experiência. Perguntas abertas são opcionais.</p>
+      <form id="survey-form">
+        <div id="questions-container"></div>
+        <p class="privacy-note form-privacy"><span aria-hidden="true">⌑</span> Não inclua dados pessoais nem informações reais de pacientes ou terceiros.</p>
+        <div id="form-error" class="form-message error-message" role="alert" hidden></div>
+        <div class="form-actions"><button class="button button-primary" id="submit-button" type="submit">Enviar respostas <span aria-hidden="true">→</span></button></div>
+      </form>
+    </section>
+
+    <section id="success" class="success-card" hidden role="status">
+      <div class="success-icon" aria-hidden="true">✓</div>
+      <p class="eyebrow">RESPOSTA REGISTRADA</p>
+      <h2>Obrigado por participar!</h2>
+      <p>Sua contribuição foi recebida de forma anônima e será considerada nesta pesquisa acadêmica.</p>
+      <a class="button button-secondary" href="/">Voltar ao início</a>
+    </section>
+  </main>
+  <footer class="site-footer"><span>Pesquisa acadêmica · Cursos Técnicos Senac</span><span>Participação voluntária e anônima</span></footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel administrativo — Pesquisa Senac</title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script defer src="/js/questions.js"></script>
+  <script defer src="/js/admin.js"></script>
+</head>
+<body class="dashboard-page">
+  <header class="dashboard-header">
+    <a class="admin-brand" href="/admin"><span class="brand-mark">S</span><span>Pesquisa acadêmica <small>PAINEL ADMINISTRATIVO</small></span></a>
+    <button id="logout-button" class="button button-ghost" type="button">Sair</button>
+  </header>
+  <main class="dashboard-shell">
+    <div class="dashboard-title"><div><p class="eyebrow">VISÃO GERAL</p><h1>Respostas da pesquisa</h1><p class="muted">Acompanhe as contribuições dos alunos de cursos técnicos.</p></div>
+      <button id="export-button" class="button button-export" type="button"><span aria-hidden="true">↓</span> Exportar CSV</button></div>
+    <section class="filters panel">
+      <label>Curso<select id="filter-course"><option value="">Todos os cursos</option></select></label>
+      <label>De<input id="filter-from" type="date"></label>
+      <label>Até<input id="filter-to" type="date"></label>
+      <button id="apply-filters" class="button button-filter" type="button">Aplicar filtros</button>
+    </section>
+    <div id="dashboard-error" class="form-error" role="alert" hidden></div>
+    <section class="stat-grid">
+      <article class="stat-card"><span class="stat-label">TOTAL DE RESPOSTAS</span><strong id="total-responses">—</strong><span class="stat-caption">Conforme filtros aplicados</span></article>
+      <article class="stat-card"><span class="stat-label">CURSOS COM RESPOSTAS</span><strong id="active-courses">—</strong><span class="stat-caption">Diferentes cursos representados</span></article>
+    </section>
+    <section class="panel section-panel">
+      <div class="section-heading"><div><p class="eyebrow">PARTICIPAÇÃO</p><h2>Respostas por curso</h2></div></div>
+      <div class="chart-wrap course-chart-wrap"><canvas id="course-chart" aria-label="Gráfico de respostas por curso"></canvas></div>
+    </section>
+    <section class="panel section-panel">
+      <div class="section-heading"><div><p class="eyebrow">PERCEPÇÕES DOS ALUNOS</p><h2>Distribuição das respostas objetivas</h2></div></div>
+      <div id="answer-charts" class="answer-charts"></div>
+      <p id="empty-charts" class="empty-state" hidden>Não há respostas objetivas para exibir nos filtros selecionados.</p>
+    </section>
+    <section class="panel section-panel">
+      <div class="section-heading list-heading"><div><p class="eyebrow">REGISTROS</p><h2>Respostas individuais</h2></div><span id="list-count" class="muted"></span></div>
+      <div class="table-scroll"><table><thead><tr><th>ID</th><th>Curso</th><th>Data e hora</th><th></th></tr></thead><tbody id="responses-body"></tbody></table></div>
+      <div id="empty-responses" class="empty-state" hidden>Nenhuma resposta encontrada para estes filtros.</div>
+      <nav class="pagination" aria-label="Paginação de respostas"><button id="previous-page" class="button button-page" type="button">← Anterior</button><span id="page-label"></span><button id="next-page" class="button button-page" type="button">Próxima →</button></nav>
+    </section>
+  </main>
+  <dialog id="response-dialog" class="response-dialog">
+    <div class="dialog-heading"><div><p class="eyebrow">RESPOSTA INDIVIDUAL</p><h2 id="dialog-title">Detalhes</h2></div><button id="close-dialog" type="button" class="close-button" aria-label="Fechar">×</button></div>
+    <p id="dialog-date" class="muted"></p><div id="dialog-answers" class="dialog-answers"></div>
+  </dialog>
+</body>
+</html>
